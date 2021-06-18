@@ -6,8 +6,6 @@ import sys
 import ujson as json
 
 
-reader = csv.reader(open("iana-ipv6-special-registry-1.csv", "r"))
-
 urls = [
 	"https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry-1.csv",
 	"https://www.iana.org/assignments/iana-ipv6-special-registry/iana-ipv6-special-registry-1.csv"
@@ -23,10 +21,6 @@ for u in urls:
 		sys.exit(1)
 
 	response = r.iter_lines()
-
-#	print(response)
-#	for r in response:
-#		print(r.decode('utf-8'))
 
 	reader = csv.reader(codecs.iterdecode(response, 'utf-8'))
 
